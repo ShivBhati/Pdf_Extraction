@@ -57,6 +57,8 @@ def main():
     extract_file_path = r'B:\Python\Git\Pdf_Extraction\extracted_pages'
     df = extracting_pdf_pages(open_file, pdf_path, extract_file_path)
 
+if __name__ == "__main__":
+    main()
 
 
 
