@@ -5,7 +5,7 @@ import fitz
 from PyPDF2 import PdfReader
 from PyPDF2 import PdfWriter
 
-pdf_writer = PdfWriter()
+
 
 def extracting_pdf_pages(x,y,z):
     exdir = os.listdir(x)    
@@ -25,10 +25,11 @@ def openpdf(y,df,z):
             pdf_document = PdfReader(input_pdf)
             pdf_num_pages = len(pdf_document.pages)
             found = 'No'
-            for page_num in range(0, pdf_num_pages+1):
-                print(f'the pdf {p} contains {page_num} pages')
+            pdf_writer = PdfWriter()
+            for page_num in range( pdf_num_pages):
+                # print(f'the pdf {p} contains {page_num} pages')
                 page = pdf_document.pages[page_num]
-                text = page.extract_text()
+                text = page.extract_text()                
                 if row['Invoice_Number'] in text and 'PLEASE PAY FROM THIS STATEMENT' not in text:
                     pdf_writer.add_page(page)
                     found = 'yes'
