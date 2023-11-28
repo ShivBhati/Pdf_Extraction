@@ -21,14 +21,14 @@ def openpdf(y,df,z):
     for p in exdir:
         input_pdf = os.path.join(y,p)
         pdf_document = PdfReader(input_pdf)
-        pdf_num_pages = len(pdf_document.Pages)
+        pdf_num_pages = len(pdf_document.pages)
         for index, row in df.iterrows():
             startpage = ''
             endpage = ''
             found = 'No'
-            for page_num in range(pdf_num_pages+1):
-                page = pdf_document[page_num]
-                text = page.get_text()
+            for page_num in range(pdf_num_pages):
+                page = pdf_document.pages[page_num]
+                text = page.extract_text()
                 if row['Invoice_Number'] in text and 'Statement' not in text:
                     if startpage == "": 
                         startpage =  page
@@ -47,19 +47,12 @@ def openpdf(y,df,z):
             else:
                 continue
         pdf_document.close()
-        
-
-
-        
-    
-
 
 def main():
-
     open_file = r'B:\Python\Git\Pdf_Extraction\excel'
     pdf_path = r'B:\Python\Git\Pdf_Extraction\pdf'
     extract_file_path = r'B:\Python\Git\Pdf_Extraction\extracted_pages'
-    df = extracting_pdf_pages(open_file, pdf_path, extract_file_path)
+    extracting_pdf_pages(open_file, pdf_path, extract_file_path)
 
 if __name__ == "__main__":
     main()
