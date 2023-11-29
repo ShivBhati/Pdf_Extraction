@@ -1,7 +1,6 @@
 import os
 import openpyxl
 import pandas as pd
-import fitz
 from PyPDF2 import PdfReader
 from PyPDF2 import PdfWriter
 
