@@ -44,9 +44,10 @@ def openpdf(y,df,z):
         
 
 def main():  
-    open_file = r'B:\Python\Git\Pdf_Extraction\excel'
-    pdf_path = r'B:\Python\Git\Pdf_Extraction\pdf'
-    extract_file_path = r'B:\Python\Git\Pdf_Extraction\extracted_pages'
+    currentpath = os.path.dirname(os.path.abspath(__file__))
+    open_file = os.path.join(currentpath,'excel')
+    pdf_path = os.path.join(currentpath,'pdf')
+    extract_file_path = os.path.join(currentpath,'extracted_pages')
     extracting_pdf_pages(open_file, pdf_path, extract_file_path)
 
 if __name__ == "__main__":
