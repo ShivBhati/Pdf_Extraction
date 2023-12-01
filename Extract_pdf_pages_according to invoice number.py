@@ -25,7 +25,7 @@ def openpdf(y,df,z):
             pdf_num_pages = len(pdf_document.pages)
             found = 'No'
             pdf_writer = PdfWriter()
-            for page_num in range( pdf_num_pages):
+            for page_num in range( pdf_num_pages + 1):
                 # print(f'the pdf {p} contains {page_num} pages')
                 page = pdf_document.pages[page_num]
                 text = page.extract_text()                
