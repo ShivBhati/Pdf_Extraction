@@ -28,19 +28,20 @@ def openpdf(y,df,z):
             for page_num in range( pdf_num_pages + 1):
                 # print(f'the pdf {p} contains {page_num} pages')
                 page = pdf_document.pages[page_num]
-                text = page.extract_text()                
-                if row['Invoice_Number'] in text and 'PLEASE PAY FROM THIS STATEMENT' not in text:
-                    pdf_writer.add_page(page)
-                    found = 'yes'
-                else:
-                    continue
-            if found == 'yes':
-                output_path = os.path.join(z,row['Invoice_Number']+".pdf")    
-                with open(output_path,'wb') as output:
-                    pdf_writer.write(output)
-                break
-            else:
-                continue
+                print(page)
+            #     text = page.extract_text()                
+            #     if row['Invoice_Number'] in text and 'PLEASE PAY FROM THIS STATEMENT' not in text:
+            #         pdf_writer.add_page(page)
+            #         found = 'yes'
+            #     else:
+            #         continue
+            # if found == 'yes':
+            #     output_path = os.path.join(z,row['Invoice_Number']+".pdf")    
+            #     with open(output_path,'wb') as output:
+            #         pdf_writer.write(output)
+            #     break
+            # else:
+            #     continue
         
 
 def main():  
