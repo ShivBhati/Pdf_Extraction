@@ -13,7 +13,6 @@ def extracting_pdf_pages(x,y,z):
         with open(exlfilename, 'rb') as exl:
             df = pd.DataFrame()
             df = pd.read_excel(exl)
-        exl.close
         openpdf(y,df,z)
 
 def openpdf(y,df,z):
